@@ -60,6 +60,7 @@ export function Header() {
       <nav className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <button onClick={() => scrollToSection("hero")} className="flex items-center space-x-2">
+            <img src="/SSlogo.png" alt="SmartSprout" className="h-8 w-8" />
             <span className="font-space font-bold text-2xl bg-gradient-to-r from-leaf-200 to-leaf-300 bg-clip-text text-transparent">
               SmartSprout
             </span>
