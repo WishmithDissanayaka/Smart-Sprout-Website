@@ -33,11 +33,11 @@ export function Footer() {
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
                 <MapPin className="h-5 w-5" />
-                <span>123 Innovation Drive, Tech Valley, CA 94043</span>
+                <span>Ingiriya, Sri Lanka</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-5 w-5" />
-                <span>(+1) 555-123-4567</span>
+                <span>(+94) 76 237 9491</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-5 w-5" />
@@ -47,13 +47,7 @@ export function Footer() {
                 <a href="https://www.facebook.com/smartsprouttt" className="hover:text-leaf-100 transition-colors">
                   <Facebook className="h-5 w-5" />
                 </a>
-                <a href="#" className="hover:text-leaf-100 transition-colors">
-                  <Twitter className="h-5 w-5" />
-                </a>
-                <a href="#" className="hover:text-leaf-100 transition-colors">
-                  <Linkedin className="h-5 w-5" />
-                </a>
-                <a href="#" className="hover:text-leaf-100 transition-colors">
+                <a href="https://www.instagram.com/smartsprout._/" className="hover:text-leaf-100 transition-colors">
                   <Instagram className="h-5 w-5" />
                 </a>
               </div>

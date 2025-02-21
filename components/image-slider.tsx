@@ -53,13 +53,14 @@ export function ImageSlider() {
           className="absolute inset-0"
         >
           <Image
-            src={slides[current].image || "/placeholder.svg"}
+            src={slides[current].image || "bg.jpg"}
             alt={slides[current].title}
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0" />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/40" />
 
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center text-white p-4">

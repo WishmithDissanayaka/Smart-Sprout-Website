@@ -6,12 +6,12 @@ import { CheckCircle } from "lucide-react"
 
 export function AboutSection() {
   const achievements = [
-    "Pioneer in AI-powered agriculture solutions",
-    "Over 1000+ farms optimized globally",
-    "Sustainable farming practices",
-    "Award-winning technology",
-    "Expert agricultural team",
-    "24/7 support system",
+    "AI-Driven Agricultural Solutions",
+    "Connecting IoT & Agriculture",
+    "Minimize Crop Loss, Maximize Yield",
+    "Sustainable & Eco-Friendly Farming",
+    "An Expansive Community",
+    "Technology For Every Farmer",
   ]
 
   return (
@@ -70,7 +70,7 @@ export function AboutSection() {
           >
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-02-20%20at%201.54.50%20PM-UEAu4ppeZBL1Bctn6oe3aHcsNmt17D.jpeg"
+                src="SmartSprout.jpeg"
                 alt="Smart Agriculture"
                 fill
                 className="object-cover"

@@ -77,9 +77,6 @@ export function Header() {
                 {item.name}
               </button>
             ))}
-            <Button className="bg-gradient-to-r from-leaf-200 to-leaf-300 text-white hover:from-leaf-300 hover:to-leaf-400 transition-all duration-300">
-              Get Started
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -107,11 +104,6 @@ export function Header() {
                     {item.name}
                   </button>
                 ))}
-                <div className="pt-2">
-                  <Button className="w-full bg-gradient-to-r from-leaf-200 to-leaf-300 text-white hover:from-leaf-300 hover:to-leaf-400 transition-all duration-300">
-                    Get Started
-                  </Button>
-                </div>
               </div>
             </motion.div>
           )}

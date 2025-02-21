@@ -11,7 +11,7 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space
 export const metadata: Metadata = {
   title: "Smart Sprout - AI-Powered Agricultural Platform",
   description: "Revolutionizing agriculture with artificial intelligence and smart technology solutions.",
-    generator: 'v0.dev'
+  icons: "SSlogo.png"
 }
 
 export default function RootLayout({

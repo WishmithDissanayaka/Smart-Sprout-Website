@@ -3,61 +3,55 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Card } from "@/components/ui/card"
-import { LinkedinIcon as LinkedIn, Twitter, Github } from "lucide-react"
+import { LinkedinIcon as LinkedIn, Github } from "lucide-react"
 
 const team = [
   {
-    name: "Nethsilu Gunathilaka",
-    role: "Chief Executive Officer",
-    image: "Nethsilu.png",
-    bio: "Ph.D. in Agricultural Science with 15+ years of experience in AgTech",
-    linkedin: "#",
-    twitter: "#",
+    name: "Lohansa Munasinghe",
+    role: "",
+    image: "Lohansa.jpg",
+    bio: "",
+    linkedin: "https://www.linkedin.com/in/lohansa-munasinghe-5691961b5/",
     github: "#",
   },
   {
-    name: "Michael Chen",
-    role: "Chief Technology Officer",
-    image: "/placeholder.svg",
-    bio: "AI specialist with expertise in machine learning and agricultural systems",
-    linkedin: "#",
-    twitter: "#",
-    github: "#",
-  },
-  {
-    name: "Surath Patel",
-    role: "Lead Software Engineer",
+    name: "Surath Embuldeniya",
+    role: "",
     image: "Surath.jpg",
-    bio: "Full-stack developer specializing in AI and agricultural technology integration",
-    linkedin: "#",
-    twitter: "#",
-    github: "#",
-  },
-  {
-    name: "James Wilson",
-    role: "Lead Data Scientist",
-    image: "/placeholder.svg",
-    bio: "Expert in agricultural data analysis and predictive modeling",
-    linkedin: "#",
-    twitter: "#",
+    bio: "",
+    linkedin: "https://www.linkedin.com/in/surath-embuldeniya-661020294/",
     github: "#",
   },
   {
     name: "Wishmith Dissanayaka",
-    role: "Research Director",
+    role: "",
     image: "Wishmith.jpg",
-    bio: "Leading research initiatives in agricultural innovation and sustainability",
-    linkedin: "#",
-    twitter: "#",
+    bio: "",
+    linkedin: "https://www.linkedin.com/in/wishmith-dissanayaka-b0954a294/",
     github: "#",
   },
   {
-    name: "David Martinez",
-    role: "Head of Operations",
-    image: "/placeholder.svg",
-    bio: "Operations expert ensuring smooth deployment of agricultural solutions",
-    linkedin: "#",
-    twitter: "#",
+    name: "Nihil Rupasinghe",
+    role: "",
+    image: "Nihil.jpg",
+    bio: "",
+    linkedin: "https://www.linkedin.com/in/nihil-rupasinghe-01746524b/",
+    github: "#",
+  },
+  {
+    name: "Mithila Peiris",
+    role: "",
+    image: "Mithila.jpg",
+    bio: "",
+    linkedin: "https://www.linkedin.com/in/mithila-peiris-126287236/",
+    github: "#",
+  },
+  {
+    name: "Nethsilu Gunathilaka",
+    role: "",
+    image: "Nethsilu.jpg",
+    bio: "",
+    linkedin: "https://www.linkedin.com/in/nethsilu-gunathilaka-51253b294/",
     github: "#",
   },
 ]
@@ -117,14 +111,6 @@ export function TeamSection() {
                       rel="noopener noreferrer"
                     >
                       <LinkedIn className="h-5 w-5" />
-                    </a>
-                    <a
-                      href={member.twitter}
-                      className="text-leaf-200 hover:text-leaf-300 transition-colors"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Twitter className="h-5 w-5" />
                     </a>
                     <a
                       href={member.github}
