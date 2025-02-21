@@ -41,10 +41,10 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-5 w-5" />
-                <span>contact@smartsprout.com</span>
+                <span>contactsmartsprout@gmail.com</span>
               </div>
               <div className="flex space-x-4 pt-4">
-                <a href="#" className="hover:text-leaf-100 transition-colors">
+                <a href="https://www.facebook.com/smartsprouttt" className="hover:text-leaf-100 transition-colors">
                   <Facebook className="h-5 w-5" />
                 </a>
                 <a href="#" className="hover:text-leaf-100 transition-colors">

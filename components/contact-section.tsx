@@ -51,7 +51,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-leaf-400 mb-1">Email Us</h3>
-                  <p className="text-gray-600">contact@smartsprout.com</p>
+                  <p className="text-gray-600">contactsmartsprout@gmail.com</p>
                 </div>
               </div>
 
@@ -61,7 +61,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-leaf-400 mb-1">Call Us</h3>
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
+                  <p className="text-gray-600">+94 76 237 9491</p>
                 </div>
               </div>
 
@@ -72,9 +72,7 @@ export function ContactSection() {
                 <div>
                   <h3 className="font-semibold text-leaf-400 mb-1">Visit Us</h3>
                   <p className="text-gray-600">
-                    123 Innovation Drive
-                    <br />
-                    Tech Valley, CA 94043
+                    Ingiriya, Sri Lanka
                   </p>
                 </div>
               </div>

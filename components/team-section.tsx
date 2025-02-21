@@ -7,9 +7,9 @@ import { LinkedinIcon as LinkedIn, Twitter, Github } from "lucide-react"
 
 const team = [
   {
-    name: "Dr. Sarah Johnson",
+    name: "Nethsilu Gunathilaka",
     role: "Chief Executive Officer",
-    image: "/placeholder.svg",
+    image: "Nethsilu.png",
     bio: "Ph.D. in Agricultural Science with 15+ years of experience in AgTech",
     linkedin: "#",
     twitter: "#",
@@ -25,10 +25,10 @@ const team = [
     github: "#",
   },
   {
-    name: "Emma Rodriguez",
-    role: "Head of Agriculture",
-    image: "/placeholder.svg",
-    bio: "Agricultural expert specializing in sustainable farming practices",
+    name: "Surath Patel",
+    role: "Lead Software Engineer",
+    image: "Surath.jpg",
+    bio: "Full-stack developer specializing in AI and agricultural technology integration",
     linkedin: "#",
     twitter: "#",
     github: "#",
@@ -43,9 +43,9 @@ const team = [
     github: "#",
   },
   {
-    name: "Dr. Lisa Chang",
+    name: "Wishmith Dissanayaka",
     role: "Research Director",
-    image: "/placeholder.svg",
+    image: "Wishmith.jpg",
     bio: "Leading research initiatives in agricultural innovation and sustainability",
     linkedin: "#",
     twitter: "#",
@@ -89,13 +89,20 @@ export function TeamSection() {
               viewport={{ once: true }}
             >
               <Card className="overflow-hidden group">
-                <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src={member.image || "/placeholder.svg"}
-                    alt={member.name}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
+                <div className="relative w-full pt-[100%] overflow-hidden bg-leaf-50">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Image
+                      src={member.image || "/placeholder.svg"}
+                      alt={member.name}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      style={{
+                        objectFit: "cover",
+                        objectPosition: member.name === "Surath Patel" ? "center top" : "center center",
+                      }}
+                    />
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-leaf-400/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-6 bg-gradient-to-b from-leaf-50 to-white">
@@ -137,6 +144,4 @@ export function TeamSection() {
     </div>
   )
 }
-
-
 
