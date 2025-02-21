@@ -69,7 +69,7 @@ export function TeamSection() {
         >
           <h2 className="font-space text-4xl font-bold mb-4 text-leaf-400">Meet Our Team</h2>
           <p className="text-xl text-leaf-300 max-w-2xl mx-auto">
-            Expert professionals dedicated to revolutionizing agriculture
+            Dedicated to the betterment of agriculture through innovative technology
           </p>
         </motion.div>
 

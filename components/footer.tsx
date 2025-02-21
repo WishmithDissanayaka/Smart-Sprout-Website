@@ -68,9 +68,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold mb-4">About SmartSprout</h2>
+            <h2 className="text-xl font-semibold mb-4">About Smart Sprout</h2>
             <p className="text-leaf-50/90 leading-relaxed">
-              SmartSprout is revolutionizing agriculture through AI-powered solutions. We're committed to sustainable
+              Smart Sprout is revolutionizing agriculture through AI-powered solutions. We're committed to sustainable
               farming practices and helping farmers optimize their yields while reducing environmental impact.
             </p>
           </div>

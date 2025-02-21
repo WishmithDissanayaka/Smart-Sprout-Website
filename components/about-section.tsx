@@ -26,7 +26,7 @@ export function AboutSection() {
         >
           <h2 className="font-space text-4xl font-bold mb-4 text-leaf-400">About SmartSprout</h2>
           <p className="text-xl text-leaf-300 max-w-2xl mx-auto">
-            Revolutionizing agriculture through innovative AI solutions
+            Revolutionizing agriculture through innovative solutions
           </p>
         </motion.div>
 

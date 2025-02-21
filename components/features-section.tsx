@@ -48,7 +48,7 @@ export function FeaturesSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-space text-4xl font-bold mb-4 text-leaf-400">Intelligent Agriculture Solutions</h2>
+          <h2 className="font-space text-4xl font-bold mb-4 text-leaf-400">Our Features</h2>
           <p className="text-xl text-leaf-300 max-w-2xl mx-auto">
             Leverage cutting-edge AI technology to revolutionize your farming practices
           </p>
