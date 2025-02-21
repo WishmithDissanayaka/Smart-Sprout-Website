@@ -7,7 +7,7 @@ import { LinkedinIcon as LinkedIn, Twitter, Github } from "lucide-react"
 
 const team = [
   {
-    name: "Lohansa Munasinghe",
+    name: "Dr. Sarah Johnson",
     role: "Chief Executive Officer",
     image: "/placeholder.svg",
     bio: "Ph.D. in Agricultural Science with 15+ years of experience in AgTech",
@@ -16,7 +16,7 @@ const team = [
     github: "#",
   },
   {
-    name: "Surath Embuldeniya",
+    name: "Michael Chen",
     role: "Chief Technology Officer",
     image: "/placeholder.svg",
     bio: "AI specialist with expertise in machine learning and agricultural systems",
@@ -25,7 +25,7 @@ const team = [
     github: "#",
   },
   {
-    name: "Wishmith Dissanayaka",
+    name: "Emma Rodriguez",
     role: "Head of Agriculture",
     image: "/placeholder.svg",
     bio: "Agricultural expert specializing in sustainable farming practices",
@@ -34,7 +34,7 @@ const team = [
     github: "#",
   },
   {
-    name: "Nihil Hesara",
+    name: "James Wilson",
     role: "Lead Data Scientist",
     image: "/placeholder.svg",
     bio: "Expert in agricultural data analysis and predictive modeling",
@@ -43,7 +43,7 @@ const team = [
     github: "#",
   },
   {
-    name: "Mithila Peiris",
+    name: "Dr. Lisa Chang",
     role: "Research Director",
     image: "/placeholder.svg",
     bio: "Leading research initiatives in agricultural innovation and sustainability",
@@ -52,7 +52,7 @@ const team = [
     github: "#",
   },
   {
-    name: "Nethsilu Gunathilake",
+    name: "David Martinez",
     role: "Head of Operations",
     image: "/placeholder.svg",
     bio: "Operations expert ensuring smooth deployment of agricultural solutions",
@@ -64,7 +64,7 @@ const team = [
 
 export function TeamSection() {
   return (
-    <section id="team" className="py-20 bg-gradient-to-br from-white to-leaf-50">
+    <div className="py-20 bg-gradient-to-br from-leaf-50 to-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -134,7 +134,9 @@ export function TeamSection() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   )
 }
+
+
 

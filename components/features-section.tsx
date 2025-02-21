@@ -39,7 +39,7 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="py-20 bg-gradient-to-br from-leaf-50 to-white">
+    <div className="py-20 bg-gradient-to-br from-leaf-50 to-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -74,6 +74,7 @@ export function FeaturesSection() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   )
 }
+

@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -32,16 +31,23 @@ export function Header() {
   }, [prevScrollPos])
 
   const scrollToSection = (sectionId: string) => {
+    // First close the mobile menu
     setIsOpen(false)
-    const element = document.getElementById(sectionId)
-    const headerOffset = 80
-    const elementPosition = element?.getBoundingClientRect().top ?? 0
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    })
+    // Wait for menu close animation to complete
+    setTimeout(() => {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        const headerHeight = 80 // Height of the header
+        const elementPosition = element.offsetTop
+        const offsetPosition = elementPosition - headerHeight
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        })
+      }
+    }, 300) // Wait for menu animation
   }
 
   return (
@@ -53,10 +59,12 @@ export function Header() {
     >
       <nav className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center space-x-2">
-            <img src="/Logo.png" alt="" height={93} width={63}/>
-          </Link>
-          
+          <button onClick={() => scrollToSection("hero")} className="flex items-center space-x-2">
+            <span className="font-space font-bold text-2xl bg-gradient-to-r from-leaf-200 to-leaf-300 bg-clip-text text-transparent">
+              SmartSprout
+            </span>
+          </button>
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
@@ -86,21 +94,23 @@ export function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden"
+              className="md:hidden overflow-hidden bg-white absolute left-0 right-0 top-20 border-b border-leaf-100"
             >
-              <div className="py-4 space-y-4">
+              <div className="py-4 space-y-1 container mx-auto px-4">
                 {navigation.map((item) => (
                   <button
                     key={item.name}
                     onClick={() => scrollToSection(item.href)}
-                    className="block w-full text-left text-leaf-400 hover:text-leaf-200 transition-colors"
+                    className="block w-full text-left px-4 py-3 text-leaf-400 hover:text-leaf-200 hover:bg-leaf-50 transition-colors rounded-md"
                   >
                     {item.name}
                   </button>
                 ))}
-                <Button className="w-full bg-gradient-to-r from-leaf-200 to-leaf-300 text-white hover:from-leaf-300 hover:to-leaf-400 transition-all duration-300">
-                  Get Started
-                </Button>
+                <div className="pt-2">
+                  <Button className="w-full bg-gradient-to-r from-leaf-200 to-leaf-300 text-white hover:from-leaf-300 hover:to-leaf-400 transition-all duration-300">
+                    Get Started
+                  </Button>
+                </div>
               </div>
             </motion.div>
           )}
