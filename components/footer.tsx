@@ -44,6 +44,9 @@ export function Footer() {
                 <span>contactsmartsprout@gmail.com</span>
               </div>
               <div className="flex space-x-4 pt-4">
+                <a href="https://www.linkedin.com/company/projectsmartsprout/about/" className="hover:text-leaf-100 transition-colors">
+                  <Linkedin className="h-5 w-5" />
+                </a>
                 <a href="https://www.facebook.com/smartsprouttt" className="hover:text-leaf-100 transition-colors">
                   <Facebook className="h-5 w-5" />
                 </a>
