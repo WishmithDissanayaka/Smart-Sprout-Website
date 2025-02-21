@@ -12,7 +12,7 @@ const team = [
     image: "Lohansa.jpg",
     bio: "",
     linkedin: "https://www.linkedin.com/in/lohansa-munasinghe-5691961b5/",
-    github: "#",
+    github: "https://github.com/lohansa",
   },
   {
     name: "Surath Embuldeniya",
@@ -20,7 +20,7 @@ const team = [
     image: "Surath.jpg",
     bio: "",
     linkedin: "https://www.linkedin.com/in/surath-embuldeniya-661020294/",
-    github: "#",
+    github: "https://github.com/SurathW1",
   },
   {
     name: "Wishmith Dissanayaka",
@@ -28,7 +28,7 @@ const team = [
     image: "Wishmith.jpg",
     bio: "",
     linkedin: "https://www.linkedin.com/in/wishmith-dissanayaka-b0954a294/",
-    github: "#",
+    github: "https://github.com/WishmithDissanayaka",
   },
   {
     name: "Nihil Rupasinghe",
@@ -36,7 +36,7 @@ const team = [
     image: "Nihil.jpg",
     bio: "",
     linkedin: "https://www.linkedin.com/in/nihil-rupasinghe-01746524b/",
-    github: "#",
+    github: "https://github.com/nihilhesara",
   },
   {
     name: "Mithila Peiris",
@@ -44,7 +44,7 @@ const team = [
     image: "Mithila.jpg",
     bio: "",
     linkedin: "https://www.linkedin.com/in/mithila-peiris-126287236/",
-    github: "#",
+    github: "https://github.com/mithilapeiris",
   },
   {
     name: "Nethsilu Gunathilaka",
@@ -52,7 +52,7 @@ const team = [
     image: "Nethsilu.jpg",
     bio: "",
     linkedin: "https://www.linkedin.com/in/nethsilu-gunathilaka-51253b294/",
-    github: "#",
+    github: "https://github.com/Nethsilu44",
   },
 ]
 
