@@ -10,8 +10,9 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space" })
 
 export const metadata: Metadata = {
-  title: "Smart Sprout - AI-Powered Agricultural Platform",
+  title: "Smart Sprout - The Farmer's Smart Companion",
   description: "Revolutionizing agriculture with artificial intelligence and smart technology solutions.",
+  icons: "SSlogo.png"
 }
 
 export default function RootLayout({
