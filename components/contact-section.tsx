@@ -100,7 +100,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-leaf-400 mb-1">Visit Us</h3>
-                  <p className="text-gray-600">Rajagiriya, Sri Lanka</p>
+                  <p className="text-gray-600">Ingiriya, Sri Lanka</p>
                 </div>
               </div>
             </div>
