@@ -37,10 +37,7 @@ export function ContactSection() {
   // Initialize EmailJS
   useEffect(() => {
     if (typeof window !== "undefined" && window.emailjs) {
-      // Using the exact initialization format from the tutorial
-      window.emailjs.init({
-        publicKey: "P9cl-TzSihD6Yytn2", // Replace with your actual public key
-      })
+      window.emailjs.init("P9cl-TzSihD6Yytn2")
     }
   }, [])
 
@@ -48,9 +45,7 @@ export function ContactSection() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Using the exact sendForm format from the tutorial
-    window.emailjs
-      .sendForm("contact_service", "contact_form", e.currentTarget)
+    window.emailjs.sendForm("contact_service", "contact_form", e.currentTarget)
       .then(() => {
         console.log("SUCCESS!")
         toast({
@@ -106,7 +101,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-leaf-400 mb-1">Email Us</h3>
-                  <p className="text-gray-600">contact@smartsprout.com</p>
+                  <p className="text-gray-600">contactsmartsprout@gmail.com</p>
                 </div>
               </div>
 
@@ -116,7 +111,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-leaf-400 mb-1">Call Us</h3>
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
+                  <p className="text-gray-600">+94 76 237 9491</p>
                 </div>
               </div>
 
@@ -127,9 +122,7 @@ export function ContactSection() {
                 <div>
                   <h3 className="font-semibold text-leaf-400 mb-1">Visit Us</h3>
                   <p className="text-gray-600">
-                    123 Innovation Drive
-                    <br />
-                    Tech Valley, CA 94043
+                    Rajagiriya, Sri Lanka
                   </p>
                 </div>
               </div>
