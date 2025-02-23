@@ -31,12 +31,19 @@ export function ContactSection() {
       "contact_form",    // Your template ID
       formRef.current!,  // The form element
       "P9cl-TzSihD6Yytn2" // Your public key
-    )
-    .then(() => {
+    ).then(() => {
+      // Send confirmation email to the user
+      const formData = new FormData(formRef.current!)
+      emailjs.send("contact_service", "contact_reply", {
+        user_name: formData.get("user_name"),
+        user_email: formData.get("user_email"),
+      }, "P9cl-TzSihD6Yytn2")
+  
       toast({
         title: "Success!",
-        description: "Your message has been sent successfully.",
+        description: "Your message has been sent successfully. We've also sent you a confirmation email.",
       })
+  
       formRef.current?.reset()
     })
     .catch((error) => {
