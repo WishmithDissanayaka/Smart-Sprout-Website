@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-
+import emailjs from "emailjs-com"
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -35,11 +35,7 @@ export function ContactSection() {
   })
 
   // Initialize EmailJS
-  useEffect(() => {
-    if (typeof window !== "undefined" && window.emailjs) {
-      window.emailjs.init("P9cl-TzSihD6Yytn2")
-    }
-  }, [])
+  emailjs.init("P9cl-TzSihD6Yytn2")
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
