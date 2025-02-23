@@ -2,25 +2,86 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin } from "lucide-react"
+import { useToast } from "@/components/ui/use-toast"
+
+// Declare emailjs on window object
+declare global {
+  interface Window {
+    emailjs: any
+  }
+}
+
+interface FormData {
+  contact_number: string
+  user_name: string
+  user_email: string
+  message: string
+}
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
+  const { toast } = useToast()
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [formData, setFormData] = useState<FormData>({
+    contact_number: "",
+    user_name: "",
+    user_email: "",
     message: "",
   })
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // Generate random contact number on component mount
+  useEffect(() => {
+    setFormData((prev) => ({
+      ...prev,
+      contact_number: String((Math.random() * 100000) | 0), // Convert to string
+    }))
+  }, [])
+
+  // Initialize EmailJS
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.emailjs) {
+      window.emailjs.init("yKFQOjgdbOgyijrGV") // Replace with your actual public key
+    }
+  }, [])
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // Add your form submission logic here
-    console.log(formData)
+    setIsSubmitting(true)
+
+    try {
+      await window.emailjs.sendForm(
+        "contact_service", // Your EmailJS service ID
+        "contact_form", // Your EmailJS template ID
+        e.currentTarget, // The form element
+      )
+
+      toast({
+        title: "Success!",
+        description: "Your message has been sent successfully.",
+      })
+
+      // Clear the form
+      setFormData({
+        contact_number: String((Math.random() * 100000) | 0), // Convert to string
+        user_name: "",
+        user_email: "",
+        message: "",
+      })
+    } catch (error) {
+      console.error("Failed to send email:", error)
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -51,7 +112,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-leaf-400 mb-1">Email Us</h3>
-                  <p className="text-gray-600">contactsmartsprout@gmail.com</p>
+                  <p className="text-gray-600">contact@smartsprout.com</p>
                 </div>
               </div>
 
@@ -61,7 +122,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-leaf-400 mb-1">Call Us</h3>
-                  <p className="text-gray-600">+94 76 237 9491</p>
+                  <p className="text-gray-600">+1 (555) 123-4567</p>
                 </div>
               </div>
 
@@ -72,7 +133,9 @@ export function ContactSection() {
                 <div>
                   <h3 className="font-semibold text-leaf-400 mb-1">Visit Us</h3>
                   <p className="text-gray-600">
-                    Ingiriya, Sri Lanka
+                    123 Innovation Drive
+                    <br />
+                    Tech Valley, CA 94043
                   </p>
                 </div>
               </div>
@@ -85,48 +148,50 @@ export function ContactSection() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form id="contact-form" onSubmit={handleSubmit} className="space-y-6">
+              {/* Hidden contact number field required by EmailJS */}
+              <input type="hidden" name="contact_number" value={formData.contact_number} />
+
               <div className="grid grid-cols-1 gap-6">
                 <div>
                   <Input
+                    name="user_name"
                     placeholder="Your Name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    value={formData.user_name}
+                    onChange={(e) => setFormData({ ...formData, user_name: e.target.value })}
                     className="bg-white border-leaf-200 focus:border-leaf-300"
+                    required
                   />
                 </div>
                 <div>
                   <Input
+                    name="user_email"
                     type="email"
                     placeholder="Your Email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    value={formData.user_email}
+                    onChange={(e) => setFormData({ ...formData, user_email: e.target.value })}
                     className="bg-white border-leaf-200 focus:border-leaf-300"
-                  />
-                </div>
-                <div>
-                  <Input
-                    placeholder="Subject"
-                    value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="bg-white border-leaf-200 focus:border-leaf-300"
+                    required
                   />
                 </div>
                 <div>
                   <Textarea
+                    name="message"
                     placeholder="Your Message"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="bg-white border-leaf-200 focus:border-leaf-300"
                     rows={4}
+                    required
                   />
                 </div>
               </div>
               <Button
                 type="submit"
                 className="w-full bg-gradient-to-r from-leaf-200 to-leaf-300 text-white hover:from-leaf-300 hover:to-leaf-400"
+                disabled={isSubmitting}
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </form>
           </motion.div>
