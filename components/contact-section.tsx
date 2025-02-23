@@ -2,20 +2,13 @@
 
 import type React from "react"
 import emailjs from "emailjs-com"
-import { useState, useEffect } from "react"
+import { useState, useRef } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin } from "lucide-react"
 import { useToast } from "@/components/ui/use-toast"
-
-// Declare emailjs on window object
-declare global {
-  interface Window {
-    emailjs: any
-  }
-}
 
 interface FormData {
   contact_number: string
@@ -27,46 +20,36 @@ interface FormData {
 export function ContactSection() {
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [formData, setFormData] = useState<FormData>({
-    contact_number: "697483", // Using static number as in the example
-    user_name: "",
-    user_email: "",
-    message: "",
-  })
-
-  // Initialize EmailJS
-  emailjs.init("P9cl-TzSihD6Yytn2")
+  const formRef = useRef<HTMLFormElement>(null)
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    window.emailjs.sendForm("contact_service", "contact_form", e.currentTarget)
-      .then(() => {
-        console.log("SUCCESS!")
-        toast({
-          title: "Success!",
-          description: "Your message has been sent successfully.",
-        })
-        // Clear the form
-        setFormData({
-          contact_number: "697483",
-          user_name: "",
-          user_email: "",
-          message: "",
-        })
+    emailjs.sendForm(
+      "contact_service", // Your service ID
+      "contact_form",    // Your template ID
+      formRef.current!,  // The form element
+      "P9cl-TzSihD6Yytn2" // Your public key
+    )
+    .then(() => {
+      toast({
+        title: "Success!",
+        description: "Your message has been sent successfully.",
       })
-      .catch((error: any) => {
-        console.log("FAILED...", error)
-        toast({
-          title: "Error",
-          description: "Failed to send message. Please try again later.",
-          variant: "destructive",
-        })
+      formRef.current?.reset()
+    })
+    .catch((error) => {
+      console.error("EmailJS error:", error)
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
       })
-      .finally(() => {
-        setIsSubmitting(false)
-      })
+    })
+    .finally(() => {
+      setIsSubmitting(false)
+    })
   }
 
   return (
@@ -117,9 +100,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-leaf-400 mb-1">Visit Us</h3>
-                  <p className="text-gray-600">
-                    Rajagiriya, Sri Lanka
-                  </p>
+                  <p className="text-gray-600">Rajagiriya, Sri Lanka</p>
                 </div>
               </div>
             </div>
@@ -131,17 +112,14 @@ export function ContactSection() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <form id="contact_form" onSubmit={handleSubmit} className="space-y-6">
-              {/* Hidden contact number field required by EmailJS */}
-              <input type="hidden" name="contact_number" value={formData.contact_number} />
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+              <input type="hidden" name="contact_number" value="697483" />
 
               <div className="grid grid-cols-1 gap-6">
                 <div>
                   <Input
                     name="user_name"
                     placeholder="Your Name"
-                    value={formData.user_name}
-                    onChange={(e) => setFormData({ ...formData, user_name: e.target.value })}
                     className="bg-white border-leaf-200 focus:border-leaf-300"
                     required
                   />
@@ -151,8 +129,6 @@ export function ContactSection() {
                     name="user_email"
                     type="email"
                     placeholder="Your Email"
-                    value={formData.user_email}
-                    onChange={(e) => setFormData({ ...formData, user_email: e.target.value })}
                     className="bg-white border-leaf-200 focus:border-leaf-300"
                     required
                   />
@@ -161,8 +137,6 @@ export function ContactSection() {
                   <Textarea
                     name="message"
                     placeholder="Your Message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="bg-white border-leaf-200 focus:border-leaf-300"
                     rows={4}
                     required
@@ -183,4 +157,5 @@ export function ContactSection() {
     </div>
   )
 }
+
 
