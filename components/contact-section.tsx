@@ -28,60 +28,54 @@ export function ContactSection() {
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState<FormData>({
-    contact_number: "",
+    contact_number: "697483", // Using static number as in the example
     user_name: "",
     user_email: "",
     message: "",
   })
 
-  // Generate random contact number on component mount
-  useEffect(() => {
-    setFormData((prev) => ({
-      ...prev,
-      contact_number: String((Math.random() * 100000) | 0), // Convert to string
-    }))
-  }, [])
-
   // Initialize EmailJS
   useEffect(() => {
     if (typeof window !== "undefined" && window.emailjs) {
-      window.emailjs.init("yKFQOjgdbOgyijrGV") // Replace with your actual public key
+      // Using the exact initialization format from the tutorial
+      window.emailjs.init({
+        publicKey: "P9cl-TzSihD6Yytn2", // Replace with your actual public key
+      })
     }
   }, [])
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    try {
-      await window.emailjs.sendForm(
-        "contact_service", // Your EmailJS service ID
-        "contact_form", // Your EmailJS template ID
-        e.currentTarget, // The form element
-      )
-
-      toast({
-        title: "Success!",
-        description: "Your message has been sent successfully.",
+    // Using the exact sendForm format from the tutorial
+    window.emailjs
+      .sendForm("contact_service", "contact_form", e.currentTarget)
+      .then(() => {
+        console.log("SUCCESS!")
+        toast({
+          title: "Success!",
+          description: "Your message has been sent successfully.",
+        })
+        // Clear the form
+        setFormData({
+          contact_number: "697483",
+          user_name: "",
+          user_email: "",
+          message: "",
+        })
       })
-
-      // Clear the form
-      setFormData({
-        contact_number: String((Math.random() * 100000) | 0), // Convert to string
-        user_name: "",
-        user_email: "",
-        message: "",
+      .catch((error: any) => {
+        console.log("FAILED...", error)
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again later.",
+          variant: "destructive",
+        })
       })
-    } catch (error) {
-      console.error("Failed to send email:", error)
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again later.",
-        variant: "destructive",
+      .finally(() => {
+        setIsSubmitting(false)
       })
-    } finally {
-      setIsSubmitting(false)
-    }
   }
 
   return (
