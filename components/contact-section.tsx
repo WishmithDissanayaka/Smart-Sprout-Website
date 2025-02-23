@@ -142,7 +142,7 @@ export function ContactSection() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <form id="contact-form" onSubmit={handleSubmit} className="space-y-6">
+            <form id="contact_form" onSubmit={handleSubmit} className="space-y-6">
               {/* Hidden contact number field required by EmailJS */}
               <input type="hidden" name="contact_number" value={formData.contact_number} />
 
