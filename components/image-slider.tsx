@@ -12,7 +12,7 @@ const slides = [
     description: "Transform your farming with AI-powered insights",
   },
   {
-    image: "/bg2.jpg",
+    image: "/pineappleedit.jpg",
     title: "Sustainable Farming",
     description: "Optimize yields while protecting the environment",
   },
