@@ -79,7 +79,7 @@ export function BlogSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
-                className="p-6 bg-white rounded-2xl shadow-lg overflow-hidden"
+                className="p-6 bg-white rounded-2xl overflow-hidden"
               >
                 <div
                   className="h-60 bg-cover bg-center rounded-xl"
