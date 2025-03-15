@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const slides = [
   {
-    image: "/bg.jpg",
+    image: "/Tea_estate.JPG",
     title: "Smart Agriculture Solutions",
     description: "Transform your farming with AI-powered insights",
   },
