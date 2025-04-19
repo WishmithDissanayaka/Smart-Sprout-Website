@@ -33,7 +33,7 @@ export function Footer() {
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
                 <MapPin className="h-5 w-5" />
-                <span>Ingiriya, Sri Lanka</span>
+                <span>Colombo, Sri Lanka</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-5 w-5" />
